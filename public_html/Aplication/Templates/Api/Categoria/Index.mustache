@@ -1,0 +1,24 @@
+<a href="{{request.base}}/api/categoria/add" class="btn btn-default"> Crear categoria </a>
+
+<div class="row">
+	<div class="col-md-12">
+		<table class="table">
+			<tr>
+				<th>Nombre</th>
+				<th colspan="2">Acciones ...veo tus cambios</th>
+			</tr>
+			
+			{{# Results.rows }}
+			<tr>
+				{{> Api/Categoria/Partials/item_index }}
+			</tr>
+			{{/ Results.rows}}
+			
+			{{^ Results.rows.0 }}
+				<tr>
+					<td colspan="7">No se encontraron categorias</td>
+				</tr>
+			{{/ Results.rows.0 }}
+		</table>
+	</div>
+</div>

@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="row">
+			<div class="panel panel-flat filterable">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">Tratamiento no instrumental</h3>
+
+	                <div class="pull-right">
+	                    <button class="btn btn-black btn-xs btn-clone-row" data-tpl="Api/Examen/Partials/Items/Table/tratamiento_alternativo"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+	                </div>
+	            </div>
+
+	            <div class="panel-body form-group">
+	            	<table class="table" data-depth="{{doc.nivel_alternativo.tratamiento_alternativo.depth}}">
+	            		<thead>
+	            			<tr>
+								<th style="width: 270px">
+									Tratamiento
+								</th>
+
+								<th style="width:100px">
+									Puntaje	
+								</th>
+								<th>
+									Importante
+								</th>
+								<th colspan="2">Motivo de finalización</th>
+							</tr>
+	            		</thead>
+
+						<tbody>
+							{{# doc.nivel_alternativo.tratamiento_alternativo }}
+								{{# items }}
+									{{> Api/Examen/Partials/Items/Table/tratamiento_alternativo }}
+								{{/ items }}
+							{{/ doc.nivel_alternativo.tratamiento_alternativo }}
+						</tbody>
+
+					</table>
+	            </div>
+
+	            <div class="panel-footer">
+	            	<p>
+	            		Selecciona en ON los ttmtos que consideres como tratamientos de primera eleccion, si el 
+									alumno selecciona ALGUNO de estos que tu seleccionaste a ON se los llevara al nivel FIN,
+									sino finalizara el juego directamente en este nivel alternativo mostrando el mensaje "Motivo de finalizacion"
+	            	</p>
+	            </div>	            
+        	</div>
+
+        	<div class="panel panel-flat filterable">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">Ayuda</h3>
+	            </div>
+
+	            <div class="panel-body form-group">
+	            	<div class="well well-sm">
+	            		Texto: Descripcion de pistas sobre que camino elegir. Cada vez que se accede a ayuda se resta un punto
+	            	</div>
+	            	<textarea style="margin-left: 15px" cols="145" rows="3" name="doc[nivel_alternativo][ayuda]">{{ doc.nivel_alternativo.ayuda }}</textarea>
+	            </div>	    
+        	</div>
+		</div>
+	</div>
+</div>

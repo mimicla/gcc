@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="Template.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Cache.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Context.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Logger.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Tokenizer.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="LambdaHelper.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Autoloader.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Exception.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Engine.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Compiler.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Loader.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="HelperCollection.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+<file name="Parser.php" server="107.170.142.110" local="130498919190000000" remote="130498919190000000" Dst="2" />
+</dwsync>

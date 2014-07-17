@@ -1,0 +1,121 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="row">
+			<div class="panel panel-flat filterable">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">Inspeccion visual</h3>
+
+	                <div class="pull-right">
+	                    <button class="btn btn-black btn-xs btn-clone-row" data-tpl="Api/Examen/Partials/Items/Table/Inspeccion_nvl_2"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+	                </div>
+	            </div>
+
+	            <div class="panel-body form-group">
+	            	<table class="table" data-depth="{{doc.nivel_2.inspeccion_visual.depth}}">
+	            		<thead>
+	            			<tr>
+								<th style="width: 315px">
+									Observaciones que tendra en cuenta el profesional
+								</th>
+
+								<th style="width:200px">
+									Puntaje	
+								</th>
+
+								<th>
+									Respuesta del paciente
+								</th>
+
+								<th colspan="2">
+									Descripcion
+								</th>
+							</tr>
+	            		</thead>
+
+						<tbody>
+							{{# doc.nivel_2.inspeccion_visual }}
+								{{# items }}
+									{{> Api/Examen/Partials/Items/Table/Inspeccion_nvl_2 }}
+								{{/ items }}
+							{{/ doc.nivel_2.inspeccion_visual }}
+						</tbody>						
+					</table>
+	            </div>	            
+        	</div>
+
+        	<div class="panel panel-flat filterable">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">Exploración/Palpación/Tests</h3>
+
+	                <div class="pull-right">
+	                    <button class="btn btn-black btn-xs btn-clone-row" data-tpl="Api/Examen/Partials/Items/Table/Exploracion"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+	                </div>
+	            </div>
+
+	            <div class="panel-body form-group">
+	            	<table class="table" data-depth="{{doc.nivel_2.exploracion_palpacion_tests.depth}}">
+	            		<thead>
+	            			<tr>
+								<th style="width: 260px">
+									Pruebas diagnosticas
+								</th>
+
+								<th style="width:200px">
+									Puntaje
+								</th>
+
+								<th colspan="2">
+									Respuesta del Paciente
+								</th>
+							</tr>
+	            		</thead>
+
+						<tbody>
+							{{# doc.nivel_2.exploracion_palpacion_tests }}
+								{{# items }}
+									{{> Api/Examen/Partials/Items/Table/Exploracion }}
+								{{/ items }}
+							{{/ doc.nivel_2.exploracion_palpacion_tests }}
+						</tbody>						
+					</table>
+	            </div>
+        	</div>
+
+        	<div class="panel panel-flat filterable">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">Ayuda</h3>
+	            </div>
+
+	            <div class="panel-body form-group">
+	            	<div class="well well-sm">
+	            		Texto: Descripcion de pistas sobre que camino elegir. Cada vez que se accede a ayuda se resta un punto
+	            	</div>
+	            	<textarea style="margin-left: 15px" cols="145" rows="3" name="doc[nivel_2][ayuda]">{{ doc.nivel_2.ayuda }}</textarea>
+	            </div>	    
+        	</div>
+
+        	<div class="panel panel-flat filterable">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">Considerar el orden del tratamiento como factor clave</h3>
+	            </div>
+
+	            <div class="panel-body form-group">
+	            	<div class="padding">
+	            		<input type="checkbox" class="switch" name="doc[order_factor_clave]" {{# doc.order_factor_clave }} checked {{/ doc.order_factor_clave}} />
+	            	</div>
+	            </div>	    
+        	</div>
+		</div>
+	</div>
+</div>
+
+
+
+<style>
+
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+
+
+</style>

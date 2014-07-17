@@ -1,0 +1,20 @@
+<tr>
+	<td>
+		<input type="text" class="inp_text" name="doc[nivel_alternativo][tratamiento_alternativo][{{depth}}][tratamiento]" value="{{tratamiento}}">
+	</td>
+
+	<td>
+		<input type="number" name="doc[nivel_alternativo][tratamiento_alternativo][{{depth}}][puntaje]" value="{{puntaje}}">
+	</td>
+		
+	<td>
+		<input type="checkbox" class="switch" name="doc[nivel_alternativo][tratamiento_alternativo][{{depth}}][activo]" {{# activo }} checked {{/ activo}} />
+	</td>
+	<td>
+		<textarea placeholder="Mensaje que recibira el usuario" cols="35" rows"10" name="doc[nivel_alternativo][tratamiento_alternativo][{{depth}}][mensaje]">{{mensaje}}</textarea>
+	</td>
+
+	<td>
+		<button class="btn btn-danger remove_item">Eliminar</button>
+	</td>
+</tr>

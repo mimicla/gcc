@@ -1,0 +1,134 @@
+<div class="row">
+	<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-12">
+				<h4>Imagenes del paciente</h4>
+
+				<span class="btn btn-success fileinput-button">
+			        <i class="glyphicon glyphicon-plus"></i>
+			        <span>Select files...</span>
+			        <!-- The file input field used as target for the file upload widget -->
+			        <input class="fileupload" type="file" name="files[]" data-name="doc[image_paciente]">
+			    </span>
+				
+				{{# doc.image_paciente }}
+				    <div class="fileupload-data" data-load="false">
+						<div class="fileupload-item">
+							<div class="progress" style="display:none">
+								<div class="progress-bar progress-bar-success"></div>
+							</div>
+
+							<div class="result">
+								<div class="fileupload-item">
+							    	<span class="label label-info">{{.}}</span>
+
+							    	<a href="{{request.base}}/api/file/upload?file={{.}}" class="btn" data-type="DELETE"> x </a>
+
+							    	<input type="hidden" name="doc[image_paciente]" value="{{.}}"/>
+						    	</div>
+					    	</div>
+					 	</div>			
+					 </div>
+			    {{/ doc.image_paciente}}
+
+
+			</div>
+
+			<div class="col-md-12">
+				<h4>Datos del paciente</h4>
+				<textarea placeholder="Describir el caso clinico" cols="40" rows="10" name="doc[descripcion]">{{doc.descripcion}}</textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-8">
+		<div class="row">
+			<div class="panel panel-flat filterable">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">Inspeccion visual</h3>
+
+	                <div class="pull-right">
+	                    <button class="btn btn-black btn-xs btn-clone-row" data-tpl="Api/Examen/Partials/Items/Table/Inspeccion_nvl_1"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+	                </div>
+	            </div>
+
+	            <div class="panel-body form-group">
+	            	<table class="table" data-depth="{{doc.nivel_1.inspeccion_visual.depth}}">
+	            		<thead>
+	            			<tr>
+								<th style="width: 315px">
+									Observaciones
+								</th>
+
+								<th style="width:200px">
+									Puntaje	
+								</th>
+
+								<th colspan="2">
+									Respuesta
+								</th>
+							</tr>
+	            		</thead>
+
+						<tbody>
+							{{# doc.nivel_1.inspeccion_visual }}
+								{{# items }}
+									{{> Api/Examen/Partials/Items/Table/Inspeccion_nvl_1 }}
+								{{/ items }}
+							{{/ doc.nivel_1.inspeccion_visual }}
+						</tbody>						
+					</table>
+	            </div>	            
+        	</div>
+
+        	<div class="panel panel-flat filterable">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">Entrevista</h3>
+
+	                <div class="pull-right">
+	                    <button class="btn btn-black btn-xs btn-clone-row" data-tpl="Api/Examen/Partials/Items/Table/Entrevista_nvl_1"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+	                </div>
+	            </div>
+
+	            <div class="panel-body form-group">
+	            	<table class="table" data-depth="{{doc.nivel_1.inspeccion_visual.depth}}">
+	            		<thead>
+	            			<tr>
+								<th style="width: 260px">
+									Preguntas que realiza el profesional
+								</th>
+
+								<th style="width:200px">
+									Puntaje
+								</th>
+
+								<th colspan="2">
+									Respuesta del Paciente
+								</th>
+							</tr>
+	            		</thead>
+
+						<tbody>
+							{{# doc.nivel_1.entrevista }}
+								{{# items }}
+									{{> Api/Examen/Partials/Items/Table/Entrevista_nvl_1 }}
+								{{/ items }}
+							{{/ doc.nivel_1.entrevista }}
+						</tbody>						
+					</table>
+	            </div>	            
+        	</div>
+		</div>
+	</div>
+</div>
+
+
+
+<style>
+
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+
+
+</style>

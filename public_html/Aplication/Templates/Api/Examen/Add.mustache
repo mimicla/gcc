@@ -1,0 +1,63 @@
+<div id="window"></div>
+<form action="" method="POST" class="form-horizontal" role="form">
+	
+	<input type="hidden" name="doc[type]" value="examen">
+	
+  {{# doc._id }}
+    <input type="hidden" name="doc[_id]" value="{{.}}">
+  {{/ doc._id}}
+
+	{{# doc._rev }}
+		<input type="hidden" name="doc[_rev]" value="{{.}}">
+	{{/ doc._rev}}
+
+	<div class="form-group">
+    	<label for="hc_nombre" class="col-md-2">Nombre del caso clinico</label>
+    	
+    	<div class="col-md-10">	
+    		<input type="text" class="form-control" id="hc_nombre" value="{{doc.titulo}}" placeholder="Ponga un titulo descriptivo del caso clinico" name="doc[titulo]">
+    	</div>
+  	</div>
+	
+	<div class="form-group">
+      <label for="hc_categoria" class="col-md-2">Categoria</label>
+    	
+    	<div class="col-md-10">	
+    		  <select id="hc_categoria" name="doc[categoria][]">
+              {{# categorias }}
+                <option value="{{ id }},{{value.label}}" {{# value.is_selected }} selected {{/ value.is_selected}}>{{ value.label }}</option>
+              {{/ categorias }}    
+          </select>
+    	</div>
+	</div>
+  
+  <section id="faq">
+     
+      <ul id="panelbar" class="ra-well-overlay">
+          <li>
+              Nivel 1 - Entrevista clinica
+              {{> Api/Examen/Partials/Niveles/entrevista_clinica }}
+          </li>
+          <li>
+              Nivel 2 - Valoracion
+              {{> Api/Examen/Partials/Niveles/valoracion }}
+          </li>
+          <li>
+              Nivel Alternativo - Solo se rellena en caso de poner ON la opcion: "Considerar el orden del tratamiento como factor clave" que aparece en el Nivel 2
+              {{> Api/Examen/Partials/Niveles/alternativo }}
+          </li>
+          <li>
+              Nivel Fin 
+              {{> Api/Examen/Partials/Niveles/fin }}
+          </li>
+      </ul>
+  </section>
+
+
+
+  <div class="form-group">
+    <button class="btn" type="submit">Guardar</button>
+  </div>
+  
+
+</form>

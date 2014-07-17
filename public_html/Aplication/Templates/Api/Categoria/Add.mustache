@@ -1,0 +1,28 @@
+<form action="" method="POST" class="form-horizontal" role="form">
+	
+	<input type="hidden" name="doc[type]" value="categoria">
+	
+	{{# doc._id }}
+    <input type="hidden" name="doc[_id]" value="{{.}}">
+  {{/ doc._id}}
+  {{# doc._rev }}
+		<input type="hidden" name="doc[_rev]" value="{{.}}">
+	{{/ doc._rev}}
+
+	<div class="form-group">
+    	<label for="hc_nombre" class="col-md-2">Nombre</label>
+    	
+    	<div class="col-md-10">	
+    		<input type="text" class="form-control" id="hc_nombre" placeholder="El nombre de la categoria" name="doc[label]" value="{{ doc.label}}">
+    	</div>
+  </div>
+	
+  <div class="form-group">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </div>
+  </div>
+	
+
+
+</form>

@@ -1,0 +1,43 @@
+<tr>
+	<td>
+		<input type="text" class="inp_text" name="doc[nivel_1][inspeccion_visual][{{depth}}][observaciones]" value="{{observaciones}}">
+	</td>
+
+	<td>
+		<input type="number" name="doc[nivel_1][inspeccion_visual][{{depth}}][puntaje]" value="{{puntaje}}">
+	</td>
+
+	<td>
+		<span class="btn btn-flat fileinput-button">
+	        <i class="glyphicon glyphicon-plus"></i>
+	       
+	        <span>Subir archivo</span>
+	       
+	        <input class="fileupload" type="file" name="files[]" data-name="doc[nivel_1][inspeccion_visual][{{depth}}][file]">
+	    </span>
+	    
+	    {{# file }}
+		    <div class="fileupload-data" data-load="false">
+				<div class="fileupload-item">
+					<div class="progress" style="display:none">
+						<div class="progress-bar progress-bar-success"></div>
+					</div>
+
+					<div class="result">
+						<div class="fileupload-item">
+					    	<span class="label label-info">{{.}}</span>
+
+					    	<a href="{{request.base}}/api/file/upload?file={{.}}" class="btn" data-type="DELETE"> x </a>
+
+					    	<input type="hidden" name="doc[nivel_1][inspeccion_visual][{{depth}}][file]" value="{{.}}"/>
+				    	</div>
+			    	</div>
+			 	</div>			
+			 </div>
+	    {{/ file}}
+	</td>
+
+	<td>
+		<button class="btn btn-danger remove_item">Eliminar</button>
+	</td>
+</tr>

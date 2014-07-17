@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Generador costumizable de casos clinicos fisioterapeuticos</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="width" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<link rel="shortcut icon" href="http://www.usj.es/sites/default/files/usjthemev1_favicon.JPG" type="image/x-icon" />
+<link rel="apple-touch-icon" href="#" />
+<link rel="apple-touch-icon" sizes="72x72" href="#" />
+<link rel="apple-touch-icon" sizes="114x114" href="#" />
+<link rel="apple-touch-icon" sizes="144x144" href="#" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="description" content="Aplicacion destinada a generar casos clinicos costumizables" />  
+<meta name="keywords" content="caso clinico, fisioterapia, tests" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.3/css/themes/default/jquery.mobile-1.4.3.min.css">
+<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.3/_assets/css/jqm-demos.css">
+<script src="http://demos.jquerymobile.com/1.4.3/js/jquery.js"></script>
+<script src="http://demos.jquerymobile.com/1.4.3/_assets/js/index.js"></script>
+<script src="http://demos.jquerymobile.com/1.4.3/js/jquery.mobile-1.4.3.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" class="jqm-demos ui-responsive-panel" id="panel-responsive-page1" data-title="Panel responsive page" data-url="panel-responsive-page1">
+
+	    <div data-role="header" data-position="fixed" data-fullscreen="true">
+        <h1>Generador de casos clinicos</h1>
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+        <a href="#add-form" data-icon="gear" data-iconpos="notext">Login</a>
+    </div><!-- /header -->
+
+    <div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+        <ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Cierra menu</a></li>
+                <li><a href="#">Examenes</a></li>
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Usuarios</a></li>
+        </ul>
+    </div><!-- /panel -->
+    <div data-role="panel" data-position="right" data-display="reveal" data-theme="a" id="add-form">
+        <form class="userform">
+            <h2>Login</h2>
+            <label for="name">Usuario:</label>
+            <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Cancelar</a></div>
+                <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Salvar</a></div>
+            </div>
+        </form>
+    </div><!-- /panel -->
+
+
+	    <div class="ui-content" role="main">
+			<img src="9a.png" alt="ideas" style="width:100%; max-width:2048px; margin:0 auto; display:block;">
+            <a href="{{request.base}}/api/categoria/add" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-btn-b ui-icon-plus ui-btn-icon-top">Crear nueva categoria</a>
+ <table data-role="table" id="temp-table" data-mode="reflow" class="ui-responsive table-stroke">
+    <thead>
+        <tr>
+            <th data-priority="persist">Categoria: </th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ value.label }}</td>
+            <td><a href="{{request.base}}/api/categoria/edit/{{id}}" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="{{request.base}}/api/categoria/delete/{{id}}/{{value.rev}}" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Cardiovascular</td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Cuidado Intensivo</td>
+             <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Deportiva</td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Dolor</td>
+             <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Electrofisiologia clinica</td>
+             <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Geriatrica</td>
+             <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Musculo-esqueletica</td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Neurologica</td>
+             <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Odontologica</td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Oncologica</thd>
+             <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+        <tr>
+            <td>Ortopedica</td>
+             <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-left">Editar</a></td>
+            <td><a href="#" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-left">Eliminar</a></td>
+        </tr>
+    </tbody>
+</table>
+
+		</div><!-- /content -->
+        
+        
+        <!--div data-role="footer" data-theme="a" data-position="fixed" data-fullscreen="true">
+    <div data-role="navbar" data-iconpos="left">
+        <ul>
+            <li><a href="#" data-icon="grid">Examenes</a></li>
+            <li><a href="#" data-icon="star" class="ui-btn-active">Categorias</a></li>
+            <li><a href="#" data-icon="gear">Usuarios</a></li>
+        </ul>
+    </div><!-- /navbar -->
+<!--/div--><!-- /footer -->
+        
+        
+
+	</div><!-- /page -->
+
+</body>
+</html>

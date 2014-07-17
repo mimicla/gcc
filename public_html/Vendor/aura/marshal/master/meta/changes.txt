@@ -1,0 +1,3 @@
+Hygiene release.
+
+- Merge pull request #15 from harikt/collection; use Collection BuilderInterface, not CollectionInterface, in README.

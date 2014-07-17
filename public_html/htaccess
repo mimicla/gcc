@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/Public
+RewriteRule ^$ Public/ [QSA,L]
+RewriteRule (.*) Public/$1 [QSA,L]

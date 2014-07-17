@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" page-base="{{ request.base }}" class="fixed">
+<head>
+
+    <title>{{ Page.Meta.title }}</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="width" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<link rel="shortcut icon" href="http://www.usj.es/sites/default/files/usjthemev1_favicon.JPG" type="image/x-icon" />
+<link rel="apple-touch-icon" href="#" />
+<link rel="apple-touch-icon" sizes="72x72" href="#" />
+<link rel="apple-touch-icon" sizes="114x114" href="#" />
+<link rel="apple-touch-icon" sizes="144x144" href="#" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="description" content="Aplicacion destinada a generar casos clinicos costumizables" />  
+<meta name="keywords" content="caso clinico, fisioterapia, tests" />
+
+    {{# Page.stylesheets }}
+        <link rel="stylesheet" href="{{ filename }}" {{ attrs }} >
+    {{/ Page.stylesheets}}
+
+    {{# Page.scripts }}
+        <script src="{{ filename }}" {{ attrs }} ></script>
+    {{/ Page.scripts }}
+
+</head>
+<body>
+
+    {{> Header }}
+
+    <div class="container">
+    
+        <div id="wrapper" class="page {{ request.origen.action }}">
+            {{> Content }}
+        </div>    
+
+    </div>
+
+    {{> Footer }}
+    
+
+    
+    
+</body>
+</html>
