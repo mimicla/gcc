@@ -1,0 +1,3 @@
+[submodule "public_html/Vendor/aura/router"]
+	path = public_html/Vendor/aura/router
+	url = https://github.com/mimicla/gcc.git
