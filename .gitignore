@@ -35,4 +35,7 @@ Icon
 .Trashes
 
 
-router
+[submodule "public_html/Vendor/aura/router"]                                               
+  path = public_html/Vendor/aura/routere                                                    
+  url = https://github.com/mimicla/gcc.git                             
+  ignore = dirty
