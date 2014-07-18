@@ -2,3 +2,8 @@
 	path = public_html/Vendor/aura/router
 	url = https://github.com/mimicla/gcc.git
   ignore=dirty
+
+[submodule "router"]
+	path = router
+	url = https://github.com/mimicla/gcc.git
+  ignore=dirty
