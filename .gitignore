@@ -36,6 +36,6 @@ Icon
 
 
 [submodule "public_html/Vendor/aura/router"]                                               
-  path = public_html/Vendor/aura/routere                                                    
+  path = public_html/Vendor/aura/router                                                   
   url = https://github.com/mimicla/gcc.git                             
   ignore = dirty
